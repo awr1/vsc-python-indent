@@ -20,7 +20,8 @@ export function newlineAndIndent(
     let toInsert = '\n';
 
     try {
-        if (textEditor.document.languageId === 'python') {
+        const langId = textEditor.document.languageId;
+        if (langId === 'nim' || langId === 'python') {
             const indent = nextIndentationLevel(
                 textEditor.document.getText(
                     new vscode.Range(0, 0, position.line, position.character)).split("\n"),
